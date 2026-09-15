@@ -1,15 +1,57 @@
-# Nexus IPTV — Roku + IPTV Extreme-style portal
+# Nexus IPTV GitHub Pages Portal
 
-This build changes the playlist workflow to mirror IPTV Extreme's portal model: the Roku has a device code, and a web portal uses that code to add Xtream Codes playlists to the device. The portal frontend can be hosted on GitHub Pages. The API must be hosted on a server/runtime (for example Railway), because GitHub Pages is static and cannot receive/store POST requests by itself.
+## Upload these files to GitHub Pages
 
-## API
+Upload these four files to the root of the repository that GitHub Pages publishes:
 
-Deploy `server/` on a Node host such as Railway. Run `npm install && npm start`. Use a persistent disk/volume for `nexus.sqlite` or set `DB_FILE` to a persistent location.
+- `index.html`
+- `style.css`
+- `app.js`
+- `config.js`
 
-## GitHub Pages portal
+## Configure the API
 
-Edit `portal/config.js` so `NEXUS_PORTAL_API` is the public API URL, then publish `portal/` as the GitHub Pages site.
+Open `config.js` and replace:
 
-## Roku
+```js
+window.NEXUS_PORTAL_API = "https://YOUR-API-DOMAIN.example.com";
+```
 
-Sideload the ZIP. The login screen displays a persistent **DEVICE CODE**. Enter that code on the portal, fill in the Xtream server/username/password, and save. Put the API URL in the Roku's **Portal API** field and press **SYNC PORTAL**. The app loads the first playlist returned for that device.
+with the public HTTPS URL of your Nexus IPTV API server.
+
+The portal expects these API endpoints:
+
+- `POST /api/device/login`
+  - Body: `{ "mac": "...", "deviceKey": "..." }`
+- `POST /api/playlists`
+  - Login/list body: `{ "mac": "...", "deviceKey": "..." }`
+  - Save body also includes `name`, `server`, `username`, `password`, `hidden`, and `locked`
+- `POST /api/playlists/delete`
+  - Body: `{ "mac": "...", "deviceKey": "...", "id": "..." }`
+
+The API must return JSON. For playlist listing, return:
+
+```json
+{
+  "playlists": [
+    {
+      "id": "1",
+      "name": "My IPTV",
+      "server": "http://example.com:8080",
+      "hidden": false,
+      "locked": false
+    }
+  ]
+}
+```
+
+## GitHub Pages
+
+1. Create or open your GitHub repository.
+2. Upload the four website files to the published folder.
+3. Go to **Settings → Pages**.
+4. Select **Deploy from a branch**.
+5. Select `main` and `/ (root)`.
+6. Save and open the generated Pages URL.
+
+This is the website only. Your Node.js API must be hosted separately, such as on your Windows PC through EZ PM2 GUI and exposed through a public HTTPS URL.

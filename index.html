@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus IPTV Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="brand">
+      <div class="logo">N</div>
+      <div>
+        <h1>NEXUS IPTV</h1>
+        <p>Playlist management portal</p>
+      </div>
+    </section>
+
+    <section id="loginCard" class="card">
+      <h2>Device Login</h2>
+      <p class="muted">Enter the MAC address and device key shown in your Roku app.</p>
+      <form id="loginForm">
+        <label for="mac">MAC Address</label>
+        <input id="mac" name="mac" placeholder="00:00:00:00:00:00" autocomplete="off" required>
+
+        <label for="deviceKey">Device Key</label>
+        <input id="deviceKey" name="deviceKey" placeholder="NEXUS-XXXXXXXX" autocomplete="off" required>
+
+        <button type="submit">LOGIN <span>→</span></button>
+      </form>
+      <p id="loginStatus" class="status"></p>
+    </section>
+
+    <section id="portalCard" class="card hidden">
+      <div class="cardHeader">
+        <div>
+          <h2>My Playlists</h2>
+          <p class="muted">Device: <strong id="deviceLabel"></strong></p>
+        </div>
+        <button id="logoutButton" class="secondary small">LOG OUT</button>
+      </div>
+
+      <div id="playlistList" class="playlistList"></div>
+
+      <div class="divider"></div>
+
+      <h2>Add Xtream Codes Playlist</h2>
+      <p class="muted">Enter the Xtream Codes details supplied by your IPTV provider.</p>
+
+      <form id="playlistForm">
+        <label for="playlistName">Playlist Name</label>
+        <input id="playlistName" placeholder="My IPTV" required>
+
+        <label for="server">Server URL</label>
+        <input id="server" type="url" placeholder="http://example.com:8080" required>
+
+        <div class="twoCol">
+          <div>
+            <label for="username">Username</label>
+            <input id="username" required>
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input id="password" type="password" required>
+          </div>
+        </div>
+
+        <div class="checks">
+          <label class="check"><input id="hiddenPlaylist" type="checkbox"> Hide Playlist</label>
+          <label class="check"><input id="lockedPlaylist" type="checkbox"> Lock Playlist</label>
+        </div>
+
+        <button type="submit">SAVE XTREAM <span>→</span></button>
+      </form>
+
+      <p id="playlistStatus" class="status"></p>
+    </section>
+
+    <footer>Nexus IPTV Portal</footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
