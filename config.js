@@ -4,4 +4,4 @@
   Example:
   window.NEXUS_PORTAL_API = "https://api.example.com";
 */
-window.NEXUS_PORTAL_API = "https:api.nexus.com";
+window.NEXUS_PORTAL_API = "https://api.neonarwhal.qzz.io";
