@@ -1,17 +1,13 @@
-# Nexus IPTV GitHub Pages Portal v2
+# Nexus IPTV GitHub Pages Portal v3
 
-This version implements the intended portal flow:
+Deploy the contents of this folder to the GitHub Pages site.
 
-1. `index.html` is the device login page.
-2. Successful MAC + device-key login stores the session locally and redirects to `/NexusIPTV/playlists/`.
-3. `playlists/index.html` loads the device's saved playlists.
-4. The playlists page contains the Xtream Codes form: Playlist Name, Server URL, Username, Password, Hide Playlist, and Lock Playlist.
-5. Save uses `POST /api/playlists`.
-6. List uses `GET /api/playlists?mac=...&deviceKey=...`.
-7. Delete uses `POST /api/playlists/delete`.
+API: https://api.neonarwhal.qzz.io
 
-The API is preconfigured as:
+Flow:
+1. Device Login
+2. Redirect to /playlists/
+3. Add Xtream Codes playlist
+4. Save/list/delete playlists through the API
 
-`https://api.neonarwhal.qzz.io`
-
-Upload all files/folders to the GitHub Pages repository, preserving the `playlists/` folder.
+This version adds 10-second API timeouts and visible connection errors instead of leaving the browser loading indefinitely.

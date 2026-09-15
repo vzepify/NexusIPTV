@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus IPTV - Playlists</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <main class="page">
+    <section class="brand">
+      <div class="logo">N</div>
+      <div><h1>NEXUS IPTV</h1><p>Playlist management portal</p></div>
+    </section>
+
+    <section class="card">
+      <div class="cardHeader">
+        <div>
+          <h2>My Playlists</h2>
+          <p class="muted">Device: <strong id="deviceLabel"></strong></p>
+        </div>
+        <button id="logoutButton" class="secondary small">LOG OUT</button>
+      </div>
+
+      <div id="playlistList" class="playlistList"></div>
+      <p id="playlistStatus" class="status"></p>
+
+      <div class="divider"></div>
+
+      <h2>Add Xtream Codes Playlist</h2>
+      <p class="muted">Enter the Xtream Codes details supplied by your IPTV provider.</p>
+
+      <form id="playlistForm" novalidate>
+        <label for="playlistName">Playlist Name</label>
+        <input id="playlistName" placeholder="My IPTV" required>
+
+        <label for="server">Server URL</label>
+        <input id="server" placeholder="http://example.com:8080" required>
+
+        <div class="twoCol">
+          <div>
+            <label for="username">Username</label>
+            <input id="username" required>
+          </div>
+          <div>
+            <label for="password">Password</label>
+            <input id="password" type="password" required>
+          </div>
+        </div>
+
+        <div class="checks">
+          <label class="check"><input id="hiddenPlaylist" type="checkbox"> Hide Playlist</label>
+          <label class="check"><input id="lockedPlaylist" type="checkbox"> Lock Playlist</label>
+        </div>
+
+        <button id="saveButton" type="submit">SAVE XTREAM <span>→</span></button>
+      </form>
+    </section>
+    <footer>Nexus IPTV</footer>
+  </main>
+  <script src="../config.js"></script>
+  <script src="../playlists.js"></script>
+</body>
+</html>
