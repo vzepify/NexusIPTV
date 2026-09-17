@@ -1,13 +1,11 @@
-# Nexus IPTV GitHub Pages Portal v3
+# Nexus IPTV GitHub Pages — Full Device Key
 
-Deploy the contents of this folder to the GitHub Pages site.
+This package keeps the existing Nexus IPTV portal design and API URL:
 
-API: https://api.neonarwhal.qzz.io
+`https://api.neonarwhal.qzz.io`
 
-Flow:
-1. Device Login
-2. Redirect to /playlists/
-3. Add Xtream Codes playlist
-4. Save/list/delete playlists through the API
+The login now uses Roku `Device ID` + the **complete** `Device Key`.
 
-This version adds 10-second API timeouts and visible connection errors instead of leaving the browser loading indefinitely.
+Important: enter every character of the Device Key shown on the Roku, including the final character. The site does not truncate the key.
+
+Upload the contents of this folder to your GitHub Pages repository root. Keep the existing `playlists/` folder.

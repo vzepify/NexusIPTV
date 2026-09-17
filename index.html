@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexus IPTV - Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page narrow">
+    <section class="brand">
+      <div class="logo">N</div>
+      <div><h1>NEXUS IPTV</h1><p>Playlist management portal</p></div>
+    </section>
+
+    <section class="card">
+      <h2>Roku Device Login</h2>
+      <p class="muted">Enter the Device ID and complete Device Key shown by your Nexus IPTV app.</p>
+      <form id="loginForm" novalidate>
+        <label for="deviceId">Device ID</label>
+        <input id="deviceId" autocomplete="off" spellcheck="false" placeholder="Roku Device ID" required>
+
+        <label for="deviceKey">Device Key</label>
+        <input id="deviceKey" autocomplete="off" spellcheck="false" maxlength="128" placeholder="NEXUS-XXXXXXXXX" required>
+        <p class="muted keyHelp">Use the <strong>entire</strong> key exactly as shown on your Roku, including the final character.</p>
+
+        <button id="loginButton" type="submit">LOGIN <span>→</span></button>
+      </form>
+      <p id="status" class="status"></p>
+    </section>
+    <footer>Nexus IPTV</footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
